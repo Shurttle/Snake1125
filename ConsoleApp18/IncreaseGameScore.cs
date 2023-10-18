@@ -14,5 +14,10 @@ namespace ConsoleApp18
             gameScore++;
 
         }
+        private static void UnIncreaseGameScore()
+        {
+            gameScore--;
+
+        }
     }
 }

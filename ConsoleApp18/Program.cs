@@ -20,6 +20,7 @@ namespace ConsoleApp18
         static Graphics graphics; // специальный класс для рисования
         static Random random = new Random(); // рандомайзер для яблока
         static int[] apple = new int[2]; // координаты яблока
+        static int[] applePoison = new int[2]; // координаты яблока
         static int gameScore = 0; // кол-во очков
         static bool gameRunning = true; // если выставить в false, змейка перестанет бежать
         static bool gamePause = false; // если выставить в true, змейка перестанет бежать, обратное переключение запустит змейку вновь
@@ -32,6 +33,7 @@ namespace ConsoleApp18
             graphics.Clear(Color.Black); // очистка экрана
             InitSnake(); // начальная инициализация змейки
             GenerateApple(); // генерация яблока
+            GeneratePoisonApple(); // генерация отравленного яблока
             threadSnake = new Thread(RunSnake); // создание потока для движения змейки
             threadSnake.Start(); // запуск потока
             RunConrol(); // запуск цикла с управлением
@@ -74,10 +76,21 @@ namespace ConsoleApp18
                 }
                 else if (SnakeEatApple()) // проверка на то, что змейка пересекла яблоко
                 {
-                    IncreaseSnake(); // увеличение длины змейки
-                    IncreaseGameScore(); // увеличение кол-во очков
-                    IncreaseGameSpeed(); // увеличение скорости движения змейки
-                    GenerateApple(); // генерация нового яблока
+                    if (SnakeEatsPoisonApple()) // проверка на то, что змейка пересекла отравленное яблоко
+                    {
+                        UnIncreaseSnake(); // увеличение длины змейки
+                        UnIncreaseGameScore(); // увеличение кол-во очков
+                        UnIncreaseGameSpeed(); // увеличение скорости движения змейки
+                        GeneratePoisonApple(); // генерация нового отравленого яблока
+                        IncreaseSnake(); // увеличение длины змейки
+                    }
+                    else
+                    {
+                        IncreaseGameScore(); // увеличение кол-во очков
+                        IncreaseGameSpeed(); // увеличение скорости движения змейки
+                        GenerateApple(); // генерация нового яблока
+                        GeneratePoisonApple(); // генерация нового отравленого яблока
+                    }
                 }
             }
         }

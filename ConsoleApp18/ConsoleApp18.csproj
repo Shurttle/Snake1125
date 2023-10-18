@@ -52,6 +52,10 @@
     <Compile Include="DrawHead.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="GenerateApple.cs" />
+    <Compile Include="GeneratePoisonApple.cs" />
+    <Compile Include="GeneratePoisonApple.Designer.cs">
+      <DependentUpon>GeneratePoisonApple.cs</DependentUpon>
+    </Compile>
     <Compile Include="GetNextCoordinates.cs" />
     <Compile Include="IncreaseGameScore.cs" />
     <Compile Include="IncreaseGameSpeed.cs" />
@@ -60,6 +64,14 @@
     <Compile Include="InitSnake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SnakeEatApple.cs" />
+    <Compile Include="SnakeEatsPoisonApple.cs" />
+    <Compile Include="SnakeEatsPoisonApple.Designer.cs">
+      <DependentUpon>SnakeEatsPoisonApple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnincreaseSnake.cs" />
+    <Compile Include="UnincreaseSnake.Designer.cs">
+      <DependentUpon>UnincreaseSnake.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
