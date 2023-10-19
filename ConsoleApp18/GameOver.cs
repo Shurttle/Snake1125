@@ -19,5 +19,9 @@ namespace ConsoleApp18
             Console.WriteLine($"Итоговое количество очков: {gameScore}");
             Console.ReadLine();
         }
+        private static void consoleTitle()
+        {
+            Console.Title = $"{gameScore}";
+        }
     }
 }

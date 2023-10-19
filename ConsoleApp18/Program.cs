@@ -7,6 +7,7 @@ using System.IO;
 using System.Drawing;
 using System.Diagnostics;
 using System.Threading;
+using System.Security.Authentication;
 
 namespace ConsoleApp18
 {
@@ -55,6 +56,7 @@ namespace ConsoleApp18
                 {
                     GameOver(); // закончить игру
                 }
+                Console.SetCursorPosition(0, 0);
             }
         }
 
@@ -62,6 +64,7 @@ namespace ConsoleApp18
         {
             while (gameRunning)
             {
+                consoleTitle();
                 Thread.Sleep(speed); // ожидание (эмуляция скорости)
                 if (gamePause) // если игра на паузе, пропускаем игровые механики
                     continue;
@@ -80,7 +83,7 @@ namespace ConsoleApp18
                     IncreaseGameScore(); // увеличение кол-во очков
                     IncreaseGameSpeed(); // увеличение скорости движения змейки
                     GenerateApple(); // генерация нового яблока
-
+                     
                 }
                 else if (SnakeEatsPoisonApple()) // проверка на то, что змейка пересекла отравленное яблоко
                 {
