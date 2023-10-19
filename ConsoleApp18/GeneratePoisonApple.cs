@@ -27,6 +27,7 @@ namespace ConsoleApp18
                     applePoison[0] += 20;
                 }
             }
+            applePoison[2] = 1;
         }
 
     }
