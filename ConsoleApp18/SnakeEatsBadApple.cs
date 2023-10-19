@@ -10,7 +10,7 @@ namespace ConsoleApp18
     {
         private static bool SnakeEatsPoisonApple()
         {
-            return applePoison[0] == snake[0][0] && applePoison[1] == snake[0][1] && applePoison.Count() == 3;
+            return Badaplle[0] == snake[0][0] && Badaplle[1] == snake[0][1] && Badaplle.Count() == 3;
             //проверка на ядовитость яблока
         }
     }

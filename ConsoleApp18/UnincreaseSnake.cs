@@ -10,9 +10,7 @@ namespace ConsoleApp18
     {
         private static void UnIncreaseSnake()
         {
-            // надо взять последнюю ячейку змейки и добавить в коллекцию snake еще одну ячейку с такими же значениями
-            int[] last = { snake.Last()[0], snake.Last()[1] };
-            snake.Remove(last);
+            snake.RemoveAt(snake.Count-1);
         }
     }
 }
